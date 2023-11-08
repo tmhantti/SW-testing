@@ -1,0 +1,27 @@
+{
+  "name": "sw-test-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'tests/**/*.js' --require @babel/register",
+    "test_c8": "c8 mocha 'tests/**/*.js' --require @babel/register"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/node": "^7.22.19",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/register": "^7.22.15",
+    "c8": "^8.0.1",
+    "mocha-each": "^2.0.1"
+  }
+}
