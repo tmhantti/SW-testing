@@ -1,24 +1,29 @@
 import add from '../src/util_library/add';
 
 const expect = require('chai').expect;
+const assert = require('chai').assert;
 
-// simple test suite for add.js: 
+// Test suite for add.js: 
 
-describe('Add.js - adding numbers (1 + 2 should be 3:', () => {
-    let noItemsInTheCart = 1;
-    let noItemsAddedToCart = 2;
-    let expectedSum= noItemsInTheCart + noItemsAddedToCart;
+describe('Add.js:', () => {
+    let a = 1.25;
+    let b = 2;
+    let c = -3;
+    let result;
 
-    // Test Case 1
-    it(`adds ${noItemsInTheCart} and ${noItemsAddedToCart}, and returns ${expectedSum}`, (done) => {
-        let sumOfItemsInTheCart = add(noItemsInTheCart, noItemsAddedToCart);        
-        expect(sumOfItemsInTheCart).to.equal((expectedSum));
+    // Test case 1 - addition
+    it(`addition - adds ${a} and ${b}, should return ${a + b} with type "number"`, (done) => {
+        result = add(a, b);        
+        expect(result).to.equal((a + b));
+        assert.isNumber(result, 'add.js returns variable with type "number"');
         done();
     });
 
-
-    //Test Case 2
-    // ... 
-
-
-}); 
+    // Test case 2 - substraction (by adding a negative number)
+    it(`substraction (by adding a negative number) - adds ${a} and ${c}, should return ${a + c} with type "number"`, (done) => {
+        result = add(a, c);        
+        expect(result).to.equal((a + c));
+        assert.isNumber(result, 'add.js returns variable with type "number"');
+        done();
+    });
+});
