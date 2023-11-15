@@ -1,4 +1,4 @@
-name: Run tests and coverage
+name: Run Tests and Coverage
 
 on:
   push:
@@ -13,10 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Setup Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 14
+
+    - name: Set working directory
+      run: cd ${{ github.workspace }}
 
     - name: Install dependencies
       run: npm ci
@@ -26,6 +29,3 @@ jobs:
 
     - name: Upload coverage to Coveralls
       run: npm install coveralls && npx coveralls
-      env:
-        COVERALLS_GITHUB_ACTION: true
-
