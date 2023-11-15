@@ -38,17 +38,17 @@ describe('capitalize function', () => {
     });
 
     it('should throw an error for null input', () => {
-        expect(() => capitalize(null)).to.throw();
+        expect(() => capitalize(null)).to.throw(TypeError);
     });
 
     it('should throw an error for undefined input', () => {
-        expect(() => capitalize(undefined)).to.throw();
+        expect(() => capitalize(undefined)).to.throw(TypeError);
     });
 
     it('should throw an error for non-string input', () => {
-        expect(() => capitalize(123)).to.throw();
-        expect(() => capitalize({})).to.throw();
-        expect(() => capitalize([])).to.throw();
+        expect(() => capitalize(123)).to.throw(TypeError);
+        expect(() => capitalize({})).to.throw(TypeError);
+        expect(() => capitalize([])).to.throw(TypeError);
     });
 
 });
