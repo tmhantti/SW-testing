@@ -15,18 +15,34 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
+    - name: Set up node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: 14
+        node-version: '16'
+    
+    - name: Set permissions
+      run: chmod -R 755 *
+      
+    - name: npm install
+      run: 
+        npm install
+        
+    - name: install nyc globally
+      run:
+        npm i nyc -g
+        
+    - name: run tests
+      run: 
+        npm run test         
 
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Run tests with coverage
-      run: npm run test_c8
-
-    - name: Upload coverage to Coveralls
-      run: npm install coveralls && npx coveralls
+    - name: create report
+      run: nyc report --reporter=lcov --reporter=text-lcov
+        
+    - name: Coveralls
+      uses: coverallsapp/github-action@v2
+      with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+    env:
+      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
