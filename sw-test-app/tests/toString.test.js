@@ -3,22 +3,22 @@ const expect = require('chai').expect;
 const assert = require('chai').assert;
 
 describe('toString function', () => {
-    // it('should convert null to an empty string', () => {
-        it('should convert null to string "null"', () => {
+    it('should convert null to an empty string', () => {
+    // it('should convert null to string "null"', () => {
         // original:
-        // expect(toString(null)).to.equal('');
+        expect(toString(null)).to.equal('');
         
         // modified:
-        expect(toString(null)).to.equal('null');
+        // expect(toString(null)).to.equal('null');
     });
 
-    // it('should convert undefined to an empty string', () => {
-    it('should convert undefined to string "undefined"', () => {
+    it('should convert undefined to an empty string', () => {
+    // it('should convert undefined to string "undefined"', () => {
         // original:
-        //expect(toString(undefined)).to.equal('');
+        expect(toString(undefined)).to.equal('');
 
         //modified:
-        expect(toString(undefined)).to.equal('undefined');
+        // expect(toString(undefined)).to.equal('undefined');
     });
 
     it('should preserve the sign of -0', () => {
