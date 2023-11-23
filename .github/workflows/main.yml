@@ -27,8 +27,7 @@ jobs:
         npm install        
         
     - name: run tests
-      run: 
-        npm run test || echo "Tests failed, but continuing..."
+      run: npm run test || echo "Tests failed, but continuing..."
 		
     - name: Create test report
       run: npx nyc report --reporter=lcov --reporter=text-lcov || echo "Failed to create test report, but continuing..."          
