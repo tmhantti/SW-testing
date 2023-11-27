@@ -1,0 +1,267 @@
+
+> test
+> nyc --reporter=html --reporter=text --reporter=lcov mocha 'tests/**/*.js' --require @babel/register
+
+
+
+  Add.js:
+    ÔêÜ addition - adds 1.25 and 2, should return 3.25 with type "number"
+    ÔêÜ substraction (by adding a negative number) - adds 1.25 and -3, should return -1.75 with type "number"
+
+  capitalize function
+    ÔêÜ should capitalize the first character and lower case the rest
+    ÔêÜ should handle first char being space
+    ÔêÜ should handle all char being space
+    ÔêÜ should return an empty string if provided an empty string
+    ÔêÜ should handle single-character strings
+    ÔêÜ should return the same string for non-alphabetic characters
+    ÔêÜ should handle mixed alphanumeric strings
+
+  countBy
+    1) should count the number of truthy values returned by the iteratee
+    2) should count the occurrences of values returned by the iteratee
+    ÔêÜ should handle an empty array
+    ÔêÜ should handle an empty object
+
+  every
+    ÔêÜ should return true for an array of truthy values with a truthy predicate
+    ÔêÜ should return false for an array with at least one falsy value and a truthy predicate
+    ÔêÜ should return true for an empty array with any predicate
+    ÔêÜ should return true for an array with all elements meeting the custom predicate
+    ÔêÜ should return false for an array with at least one element failing the custom predicate
+
+  filter function
+    ÔêÜ should filter an array of users based on the "active" property
+    3) should return an empty array when filtering an empty array
+    4) should return an empty array when no elements match the predicate
+    ÔêÜ should filter an array of numbers based on the predicate
+    ÔêÜ should filter an array of strings based on the predicate
+
+  isDate function
+    ÔêÜ should return true for a Date object
+    ÔêÜ should return false for a date string
+    ÔêÜ should return false for a number
+    ÔêÜ should return false for an object
+    ÔêÜ should return false for an array
+    ÔêÜ should return false for null
+    ÔêÜ should return false for undefined
+    ÔêÜ should return true for a Date object with a specific date
+    ÔêÜ should return true for a Date object created with year, month, and day parameters
+    ÔêÜ should return true for a Date object created with a timestamp
+    ÔêÜ should return true for a Date object created with Date.now()
+    ÔêÜ should return true for a Date object created with Date.parse()
+    5) should return false for an invalid Date object
+    ÔêÜ should return false for an object mimicking a Date
+    ÔêÜ should return false for boolean values
+    ÔêÜ should return false for a symbol
+
+  isEmpty.js : 
+    ÔêÜ should return true for null
+    ÔêÜ should return true for true
+    ÔêÜ should return false for a non-empty array
+    ÔêÜ should return true for an empty array
+    ÔêÜ should return false for a non-empty string
+    ÔêÜ should return true for an empty string
+    ÔêÜ should return false for a non-empty object
+    ÔêÜ should return true for an empty object
+    ÔêÜ should return false for a non-empty map
+    ÔêÜ should return true for an empty map
+    ÔêÜ should return false for a non-empty set
+    ÔêÜ should return true for an empty set
+    ÔêÜ should return true for an empty object with prototype properties
+    6) should return true for an object prototype with no own properties
+    ÔêÜ should return false for an object prototype with own properties
+
+  toNumber
+    ÔêÜ should convert a valid number to itself
+    ÔêÜ should return NaN for Symbol values
+    ÔêÜ should convert string representation of numbers to actual numbers
+    ÔêÜ should handle object values by using valueOf method if available
+    ÔêÜ should handle binary and octal string values
+    ÔêÜ should handle bad hex string values and return NaN
+    ÔêÜ should return 0 for string "0"
+    ÔêÜ should return NaN for invalid input
+
+  toString function
+    7) should convert null to an empty string
+    8) should convert undefined to an empty string
+    ÔêÜ should preserve the sign of -0
+    ÔêÜ should convert an array to a comma-separated string
+    ÔêÜ should convert a number to a string
+    ÔêÜ should convert a boolean to a string
+    ÔêÜ should convert an array with mixed types including numbers and strings
+    ÔêÜ should convert an array with null and undefined to strings with empty values for these elements
+    ÔêÜ should convert an array with boolean values to their string representations
+    ÔêÜ converts a Symbol to a string
+
+  words
+    ÔêÜ should split string into words using default pattern
+    ÔêÜ should split string into words using provided pattern
+    ÔêÜ should handle empty string
+    ÔêÜ should handle string with Unicode words
+    ÔêÜ should handle string with mixed Unicode and ASCII words
+
+
+  69 passing (56ms)
+  8 failing
+
+  1) countBy
+       should count the number of truthy values returned by the iteratee:
+
+      AssertionError: expected { true: 1, false: +0 } to deeply equal { true: 2, false: 1 }
+      + expected - actual
+
+       {
+      -  "false": 0
+      -  "true": 1
+      +  "false": 1
+      +  "true": 2
+       }
+      
+      at Context.<anonymous> (tests\/countBy.test.js:16:28)
+      at processImmediate (node:internal/timers:466:21)
+
+  2) countBy
+       should count the occurrences of values returned by the iteratee:
+
+      AssertionError: expected { odd: 4, even: 3 } to deeply equal { odd: 5, even: 4 }
+      + expected - actual
+
+       {
+      -  "even": 3
+      -  "odd": 4
+      +  "even": 4
+      +  "odd": 5
+       }
+      
+      at Context.<anonymous> (tests\/countBy.test.js:24:28)
+      at processImmediate (node:internal/timers:466:21)
+
+  3) filter function
+       should return an empty array when filtering an empty array:
+
+      AssertionError: expected [ [] ] to deeply equal []
+      + expected - actual
+
+      -[
+      -  []
+      -]
+      +[]
+      
+      at Context.<anonymous> (tests\/filter.test.js:24:28)
+      at processImmediate (node:internal/timers:466:21)
+
+  4) filter function
+       should return an empty array when no elements match the predicate:
+
+      AssertionError: expected [ [] ] to deeply equal []
+      + expected - actual
+
+      -[
+      -  []
+      -]
+      +[]
+      
+      at Context.<anonymous> (tests\/filter.test.js:36:28)
+      at processImmediate (node:internal/timers:466:21)
+
+  5) isDate function
+       should return false for an invalid Date object:
+
+      AssertionError: expected true to be false
+      + expected - actual
+
+      -true
+      +false
+      
+      at Context.<anonymous> (tests\/isDate.test.js:54:62)
+      at processImmediate (node:internal/timers:466:21)
+
+  6) isEmpty.js : 
+       should return true for an object prototype with no own properties:
+
+      AssertionError: expected false to be true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (tests\/isEmpty.test.js:74:49)
+      at processImmediate (node:internal/timers:466:21)
+
+  7) toString function
+       should convert null to an empty string:
+
+      AssertionError: expected 'null' to equal ''
+      + expected - actual
+
+      -null
+      
+      at Context.<anonymous> (tests\/toString.test.js:9:35)
+      at processImmediate (node:internal/timers:466:21)
+
+  8) toString function
+       should convert undefined to an empty string:
+
+      AssertionError: expected 'undefined' to equal ''
+      + expected - actual
+
+      -undefined
+      
+      at Context.<anonymous> (tests\/toString.test.js:18:40)
+      at processImmediate (node:internal/timers:466:21)
+
+
+
+-------------------------|---------|----------|---------|---------|-------------------
+File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------|---------|----------|---------|---------|-------------------
+All files                |   82.68 |    58.33 |   80.51 |   81.75 |                   
+ util_library            |   88.48 |    73.07 |   83.33 |   88.48 |                   
+  add.js                 |     100 |      100 |     100 |     100 |                   
+  capitalize.js          |     100 |      100 |     100 |     100 |                   
+  countBy.js             |     100 |      100 |     100 |     100 |                   
+  every.js               |     100 |       75 |     100 |     100 | 24                
+  filter.js              |     100 |       75 |     100 |     100 | 27                
+  isArguments.js         |      80 |       50 |      50 |      75 | 20                
+  isArrayLike.js         |     100 |      100 |     100 |     100 |                   
+  isBuffer.js            |      90 |    66.66 |      50 |     100 | 1-7,13-33         
+  isDate.js              |   88.88 |     62.5 |   66.66 |     100 | 23-25             
+  isEmpty.js             |     100 |    80.95 |     100 |     100 | 49                
+  isLength.js            |     100 |      100 |     100 |     100 |                   
+  isObject.js            |     100 |      100 |     100 |     100 |                   
+  isObjectLike.js        |      50 |        0 |       0 |      50 | 24                
+  isSymbol.js            |     100 |       60 |     100 |     100 | 1                 
+  isTypedArray.js        |      80 |     62.5 |   33.33 |    87.5 | 27                
+  keys.js                |     100 |       75 |     100 |     100 | 32                
+  reduce.js              |     100 |      100 |     100 |     100 |                   
+  slice.js               |    5.88 |        0 |       0 |    5.88 | 22-43             
+  toNumber.js            |     100 |    91.66 |     100 |     100 | 52,56             
+  toString.js            |     100 |      100 |     100 |     100 |                   
+  upperFirst.js          |     100 |      100 |     100 |     100 |                   
+  words.js               |     100 |       90 |     100 |     100 | 35                
+ util_library/.internal  |   78.22 |    44.21 |   77.14 |   77.02 |                   
+  arrayLikeKeys.js       |   33.33 |      7.4 |      50 |      30 | 18-40             
+  arrayReduce.js         |    87.5 |       50 |     100 |    87.5 | 17                
+  asciiToArray.js        |      50 |      100 |       0 |      50 | 9                 
+  baseAssignValue.js     |      75 |       50 |     100 |      75 | 12                
+  baseEach.js            |   46.66 |       50 |     100 |   42.85 | 14,19-28          
+  baseFor.js             |      70 |        0 |     100 |      70 | 19-21             
+  baseForOwn.js          |     100 |      100 |     100 |     100 |                   
+  baseReduce.js          |      75 |        0 |      50 |      75 | 16                
+  baseToNumber.js        |   66.66 |       50 |     100 |    62.5 | 18-21             
+  baseToString.js        |   38.46 |    14.28 |      50 |   33.33 | 19-30             
+  castSlice.js           |      50 |       25 |      50 |      40 | 13-15             
+  createCaseFirst.js     |     100 |       70 |     100 |     100 | 18-26             
+  createMathOperation.js |   70.58 |    72.22 |     100 |   68.75 | 15,18,21,24-25    
+  freeGlobal.js          |     100 |    83.33 |     100 |     100 | 2                 
+  getTag.js              |      80 |       25 |     100 |      80 | 12                
+  hasUnicode.js          |     100 |      100 |     100 |     100 |                   
+  isIndex.js             |      50 |        0 |       0 |      50 | 16-19             
+  isPrototype.js         |     100 |       80 |     100 |     100 | 13                
+  nodeTypes.js           |     100 |    67.74 |     100 |     100 | 1-7,21-24         
+  root.js                |     100 |    45.45 |     100 |     100 | 2-11              
+  stringToArray.js       |   83.33 |       50 |      50 |      80 | 13                
+  unicodeToArray.js      |      96 |        0 |       0 |      96 | 40                
+  unicodeWords.js        |     100 |      100 |     100 |     100 |                   
+-------------------------|---------|----------|---------|---------|-------------------
