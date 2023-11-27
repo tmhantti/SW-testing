@@ -66,16 +66,24 @@ describe('isEmpty.js : ', () => {
         expect(isEmpty(emptyObjectWithPrototype)).to.be.true;
     });
 
-  it('should return false for an object with own properties and prototype properties', () => {
-    function MyObject() {}
-    MyObject.prototype.someProperty = 'someValue';
+    it('should return true for an object prototype with no own properties', () => {
+      function MyObject() {}
+      MyObject.prototype.testProperty = 123;
+      
+      const prototypeOfMyObject = Object.getPrototypeOf(new MyObject());
+      expect(isEmpty(prototypeOfMyObject)).to.be.true;
+    });
 
-    const objectWithProperties = new MyObject();
-    objectWithProperties.ownProperty = 'ownValue';
-
-    expect(isEmpty(objectWithProperties)).to.be.false;
-  });
-  });
+    it('should return false for an object prototype with own properties', () => {
+      function MyObject() {
+          this.ownProperty = 456;
+      }
+      MyObject.prototype.testProperty = 123;
+      
+      const prototypeOfMyObject = Object.getPrototypeOf(new MyObject());
+      expect(isEmpty(prototypeOfMyObject)).to.be.false;
+    });
+});
   
   
   

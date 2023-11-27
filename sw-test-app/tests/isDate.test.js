@@ -50,4 +50,22 @@ describe('isDate function', () => {
         expect(isDate(new Date(Date.parse('2023-01-01')))).to.be.true;
     });
 
+    it('should return false for an invalid Date object', () => {
+        expect(isDate(new Date('invalid date string'))).to.be.false;
+    });
+
+    it('should return false for an object mimicking a Date', () => {
+        const fakeDate = { getTime: () => 1234567890 };
+        expect(isDate(fakeDate)).to.be.false;
+    });
+
+    it('should return false for boolean values', () => {
+        expect(isDate(true)).to.be.false;
+        expect(isDate(false)).to.be.false;
+    });
+
+    it('should return false for a symbol', () => {
+        expect(isDate(Symbol())).to.be.false;
+    });
+
 });

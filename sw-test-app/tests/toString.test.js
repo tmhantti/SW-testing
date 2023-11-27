@@ -49,4 +49,9 @@ describe('toString function', () => {
     it('should convert an array with boolean values to their string representations', () => {
         expect(toString([true, false])).to.equal('true,false');
     });
+
+    it("converts a Symbol to a string", () => {
+        const symbol = Symbol("test symbol");
+        expect(toString(symbol)).to.equal('Symbol(test symbol)');
+    });
 });
