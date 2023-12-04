@@ -38,38 +38,4 @@ describe('capitalize function', () => {
         expect(capitalize('#FRED')).to.equal('#fred');
     });
 
-    // commented out: the function capitalize.js does not throw error.
-    // Also, the function expects string as input. 
-    /*
-    it('should throw an error for null input', () => {
-    // it('should covert null to string "Null"', () => {        
-        // original 
-        expect(() => capitalize(null)).to.throw(TypeError);
-        // modified:
-        // expect(capitalize(null)).to.equal('Null');
-    });
-    */
-   
-    // commented out: the function capitalize.js does not throw error.
-    // Also, the function expects string as input. 
-    /*
-    it('should throw an error for undefined input', () => {
-    // it('should covert undefined to string "Undefined"', () => {            
-        // original:
-        expect(() => capitalize(undefined)).to.throw(TypeError);
-        // modified:
-        //expect(capitalize(undefined)).to.equal('Undefined');
-    });
-    */
-
-    // commented out: the function capitalize.js does not throw error.
-    // Also, the function expects string as input. 
-    /*
-    it('should throw an error for non-string input', () => {
-        expect(() => capitalize(123)).to.throw(TypeError);
-        expect(() => capitalize({})).to.throw(TypeError);
-        expect(() => capitalize([])).to.throw(TypeError);
-    });
-    */
-
 });

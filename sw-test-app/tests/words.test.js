@@ -26,4 +26,14 @@ describe('words', () => {
     const result = words('Hello, 你好, World');
     expect(result).to.deep.equal(['Hello', '你好', 'World']);
   });
+
+  it('should split the string based on a custom pattern that matches words', () => {
+    const result = words('fred, barney, & pebbles', /[^, ]+/g);
+    expect(result).to.eql(['fred', 'barney', '&', 'pebbles']);
+  });
+
+  it('should return an empty array when custom pattern matches no words', () => {
+    const result = words('fred, barney, & pebbles', /\d+/g);
+    expect(result).to.eql([]);
+  });
 });

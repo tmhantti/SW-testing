@@ -2,9 +2,6 @@ import isEmpty from '../src/util_library/isEmpty';
 
 const expect = require('chai').expect;
 
-// Test suite for isEmpty.js: 
-// (note: the test suite was generated using chatGPT 3.5)
-
 describe('isEmpty.js : ', () => {
     it('should return true for null', () => {
       expect(isEmpty(null)).to.be.true;
@@ -82,6 +79,24 @@ describe('isEmpty.js : ', () => {
       
       const prototypeOfMyObject = Object.getPrototypeOf(new MyObject());
       expect(isEmpty(prototypeOfMyObject)).to.be.false;
+    });
+
+    it('should return true for an object with a splice function and length 0', () => {
+      expect(isEmpty({ splice: Function.prototype, length: 0 })).to.be.true;
+    });
+
+    it('should return true for an empty buffer', () => {
+      expect(isEmpty(Buffer.alloc(0))).to.be.true;
+    });
+
+    it('should return true for an empty typed array', () => {
+      expect(isEmpty(new Uint8Array())).to.be.true;
+    });
+
+    it('should return true for an empty arguments object', () => {
+      (function() {
+          expect(isEmpty(arguments)).to.be.true;
+      })();
     });
 });
   

@@ -1,7 +1,6 @@
 import countBy from '../src/util_library/countBy';
 const expect = require('chai').expect;
 
-// test suite for countBy.js: 
 
 describe('countBy', () => {
   it('should count the number of truthy values returned by the iteratee', () => {
@@ -22,6 +21,18 @@ describe('countBy', () => {
     const result = countBy(numbers, value => value % 2 === 0 ? 'even' : 'odd');
 
     expect(result).to.deep.equal({ 'odd': 5, 'even': 4 });
+  });
+
+  it('should handle an array the size of one', () => {
+    const array = [1];
+    const result = countBy(array, value => value);
+    expect(result).to.equal({ '1': 1 });
+  });
+
+  it('should count the occurrence of "b" in an array of "a"s', () => {
+    const array = ["a", "a", "a", "a"];
+    const result = countBy(array, value => value === 'b');
+    expect(result).to.equal({ 'false': 4 });
   });
 
   it('should handle an empty array', () => {

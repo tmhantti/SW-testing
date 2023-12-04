@@ -36,4 +36,16 @@ describe('every', () => {
     const result = every(array, predicate);
     expect(result).to.be.false;
   });
+
+  it('should return true for a null array', () => {
+    expect(every(null, Boolean)).to.be.true;
+  });
+
+  it('should return true for an empty array', () => {
+    expect(every([], Boolean)).to.be.true;
+  });
+
+  it('should return false if any element fails the predicate', () => {
+    expect(every([true, 1, null, 'yes'], Boolean)).to.be.false;
+  });
 });

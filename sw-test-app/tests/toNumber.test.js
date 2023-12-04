@@ -45,4 +45,5 @@ describe('toNumber', () => {
   it('should return NaN for invalid input', () => {
     expect(isNaN(toNumber('invalid'))).to.be.true;
   });
+  
 });

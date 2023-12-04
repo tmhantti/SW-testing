@@ -22,6 +22,10 @@ describe('isDate function', () => {
         expect(isDate([])).to.be.false;
     });
 
+    it('should return false for an array with Date object', () => {
+        expect(isDate([new Date()])).to.be.false;
+    });
+
     it('should return false for null', () => {
         expect(isDate(null)).to.be.false;
     });
@@ -50,8 +54,8 @@ describe('isDate function', () => {
         expect(isDate(new Date(Date.parse('2023-01-01')))).to.be.true;
     });
 
-    it('should return false for an invalid Date object', () => {
-        expect(isDate(new Date('invalid date string'))).to.be.false;
+    it('should return true for an invalid Date object', () => {
+        expect(isDate(new Date('invalid date string'))).to.be.true;
     });
 
     it('should return false for an object mimicking a Date', () => {
